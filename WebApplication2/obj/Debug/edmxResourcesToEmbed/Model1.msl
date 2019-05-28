@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="swdModelStoreContainer" CdmEntityContainer="swdEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="swdModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="comID" ColumnName="comID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+          <ScalarProperty Name="CompanySpec" ColumnName="CompanySpec" />
+          <ScalarProperty Name="CompanyEmail" ColumnName="CompanyEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
