@@ -29,8 +29,8 @@ namespace WebApplication2.Models
         public string CompanyEmail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CompanyPayroll> CompanyPayrolls { internal get; set; }
+        public virtual ICollection<CompanyPayroll> CompanyPayrolls { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Employee> Employees { internal get; set; }
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

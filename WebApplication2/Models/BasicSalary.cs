@@ -17,6 +17,6 @@ namespace WebApplication2.Models
         public int salID { get; set; }
         public Nullable<int> empID { get; set; }
     
-        public virtual Employee Employee { internal get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

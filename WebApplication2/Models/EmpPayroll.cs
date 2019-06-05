@@ -24,9 +24,9 @@ namespace WebApplication2.Models
         public Nullable<int> comPayrollID { get; set; }
         public Nullable<int> empID { get; set; }
     
-        public virtual CompanyPayroll CompanyPayroll { internal get; set; }
-        public virtual Employee Employee { internal get; set; }
+        public virtual CompanyPayroll CompanyPayroll { get; set; }
+        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payslip> Payslips { internal get; set; }
+        public virtual ICollection<Payslip> Payslips { get; set; }
     }
 }

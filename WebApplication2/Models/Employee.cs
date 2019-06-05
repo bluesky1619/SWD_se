@@ -26,11 +26,11 @@ namespace WebApplication2.Models
         public Nullable<int> comID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BasicSalary> BasicSalaries { internal get; set; }
-        public virtual Company Company { internal get; set; }
+        public virtual ICollection<BasicSalary> BasicSalaries { get; set; }
+        public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmpPayroll> EmpPayrolls { internal get; set; }
+        public virtual ICollection<EmpPayroll> EmpPayrolls { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Extra> Extras { internal get; set; }
+        public virtual ICollection<Extra> Extras { get; set; }
     }
 }

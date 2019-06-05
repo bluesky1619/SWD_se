@@ -30,6 +30,8 @@
           <Property Name="comPayrollID" Type="int" Nullable="false" />
           <Property Name="comID" Type="int" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'swd.dbo.EmpExtra' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmpExtra">
           <Key>
             <PropertyRef Name="extraID" />
@@ -74,7 +76,7 @@
           <Property Name="psDetailID" Type="int" Nullable="false" />
           <Property Name="payslipID" Type="int" />
         </EntityType>
-        <Association Name="FK__BasicSala__empID__1FCDBCEB">
+        <Association Name="FK__BasicSala__empID__45F365D3">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="BasicSalary" Type="Self.BasicSalary" Multiplicity="*" />
           <ReferentialConstraint>
@@ -86,7 +88,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CompanyPa__comID__20C1E124">
+        <Association Name="FK__CompanyPa__comID__46E78A0C">
           <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="CompanyPayroll" Type="Self.CompanyPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -98,7 +100,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpExtra__empID__21B6055D">
+        <Association Name="FK__EmpExtra__empID__47DBAE45">
           <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
           <End Role="EmpExtra" Type="Self.EmpExtra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -110,7 +112,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpExtra__extraI__22AA2996">
+        <Association Name="FK__EmpExtra__extraI__48CFD27E">
           <End Role="Extra" Type="Self.Extra" Multiplicity="1" />
           <End Role="EmpExtra" Type="Self.EmpExtra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -122,7 +124,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__comID__239E4DCF">
+        <Association Name="FK__Employee__comID__49C3F6B7">
           <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -134,7 +136,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpPayrol__comPa__24927208">
+        <Association Name="FK__EmpPayrol__comPa__4AB81AF0">
           <End Role="CompanyPayroll" Type="Self.CompanyPayroll" Multiplicity="0..1" />
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -146,7 +148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpPayrol__empID__25869641">
+        <Association Name="FK__EmpPayrol__empID__4BAC3F29">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -158,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Extra__psDetailI__267ABA7A">
+        <Association Name="FK__Extra__psDetailI__4CA06362">
           <End Role="PaySlipDetail" Type="Self.PaySlipDetail" Multiplicity="0..1" />
           <End Role="Extra" Type="Self.Extra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -170,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Payslip__empPayr__276EDEB3">
+        <Association Name="FK__Payslip__empPayr__4D94879B">
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="0..1" />
           <End Role="Payslip" Type="Self.Payslip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -182,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PaySlipDe__paysl__286302EC">
+        <Association Name="FK__PaySlipDe__paysl__4E88ABD4">
           <End Role="Payslip" Type="Self.Payslip" Multiplicity="0..1" />
           <End Role="PaySlipDetail" Type="Self.PaySlipDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,49 +200,54 @@
           <EntitySet Name="BasicSalary" EntityType="Self.BasicSalary" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyPayroll" EntityType="Self.CompanyPayroll" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EmpExtra" EntityType="Self.EmpExtra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmpPayroll" EntityType="Self.EmpPayroll" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Extra" EntityType="Self.Extra" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payslip" EntityType="Self.Payslip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PaySlipDetail" EntityType="Self.PaySlipDetail" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__BasicSala__empID__1FCDBCEB" Association="Self.FK__BasicSala__empID__1FCDBCEB">
+          <EntitySet Name="EmpExtra" EntityType="Self.EmpExtra" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmpExtra].[extraID] AS [extraID], 
+    [EmpExtra].[empID] AS [empID]
+    FROM [dbo].[EmpExtra] AS [EmpExtra]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__BasicSala__empID__45F365D3" Association="Self.FK__BasicSala__empID__45F365D3">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="BasicSalary" EntitySet="BasicSalary" />
           </AssociationSet>
-          <AssociationSet Name="FK__CompanyPa__comID__20C1E124" Association="Self.FK__CompanyPa__comID__20C1E124">
+          <AssociationSet Name="FK__CompanyPa__comID__46E78A0C" Association="Self.FK__CompanyPa__comID__46E78A0C">
             <End Role="Company" EntitySet="Company" />
             <End Role="CompanyPayroll" EntitySet="CompanyPayroll" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpExtra__empID__21B6055D" Association="Self.FK__EmpExtra__empID__21B6055D">
+          <AssociationSet Name="FK__EmpExtra__empID__47DBAE45" Association="Self.FK__EmpExtra__empID__47DBAE45">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="EmpExtra" EntitySet="EmpExtra" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpExtra__extraI__22AA2996" Association="Self.FK__EmpExtra__extraI__22AA2996">
+          <AssociationSet Name="FK__EmpExtra__extraI__48CFD27E" Association="Self.FK__EmpExtra__extraI__48CFD27E">
             <End Role="Extra" EntitySet="Extra" />
             <End Role="EmpExtra" EntitySet="EmpExtra" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__comID__239E4DCF" Association="Self.FK__Employee__comID__239E4DCF">
+          <AssociationSet Name="FK__Employee__comID__49C3F6B7" Association="Self.FK__Employee__comID__49C3F6B7">
             <End Role="Company" EntitySet="Company" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpPayrol__comPa__24927208" Association="Self.FK__EmpPayrol__comPa__24927208">
+          <AssociationSet Name="FK__EmpPayrol__comPa__4AB81AF0" Association="Self.FK__EmpPayrol__comPa__4AB81AF0">
             <End Role="CompanyPayroll" EntitySet="CompanyPayroll" />
             <End Role="EmpPayroll" EntitySet="EmpPayroll" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpPayrol__empID__25869641" Association="Self.FK__EmpPayrol__empID__25869641">
+          <AssociationSet Name="FK__EmpPayrol__empID__4BAC3F29" Association="Self.FK__EmpPayrol__empID__4BAC3F29">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="EmpPayroll" EntitySet="EmpPayroll" />
           </AssociationSet>
-          <AssociationSet Name="FK__Extra__psDetailI__267ABA7A" Association="Self.FK__Extra__psDetailI__267ABA7A">
+          <AssociationSet Name="FK__Extra__psDetailI__4CA06362" Association="Self.FK__Extra__psDetailI__4CA06362">
             <End Role="PaySlipDetail" EntitySet="PaySlipDetail" />
             <End Role="Extra" EntitySet="Extra" />
           </AssociationSet>
-          <AssociationSet Name="FK__Payslip__empPayr__276EDEB3" Association="Self.FK__Payslip__empPayr__276EDEB3">
+          <AssociationSet Name="FK__Payslip__empPayr__4D94879B" Association="Self.FK__Payslip__empPayr__4D94879B">
             <End Role="EmpPayroll" EntitySet="EmpPayroll" />
             <End Role="Payslip" EntitySet="Payslip" />
           </AssociationSet>
-          <AssociationSet Name="FK__PaySlipDe__paysl__286302EC" Association="Self.FK__PaySlipDe__paysl__286302EC">
+          <AssociationSet Name="FK__PaySlipDe__paysl__4E88ABD4" Association="Self.FK__PaySlipDe__paysl__4E88ABD4">
             <End Role="Payslip" EntitySet="Payslip" />
             <End Role="PaySlipDetail" EntitySet="PaySlipDetail" />
           </AssociationSet>
@@ -256,7 +263,7 @@
           </Key>
           <Property Name="salID" Type="Int32" Nullable="false" />
           <Property Name="empID" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__BasicSala__empID__1FCDBCEB" FromRole="BasicSalary" ToRole="Employee" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__BasicSala__empID__45F365D3" FromRole="BasicSalary" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Company">
           <Key>
@@ -268,8 +275,8 @@
           <Property Name="CompanyPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CompanySpec" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CompanyEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CompanyPayrolls" Relationship="Self.FK__CompanyPa__comID__20C1E124" FromRole="Company" ToRole="CompanyPayroll" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__comID__239E4DCF" FromRole="Company" ToRole="Employee" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="CompanyPayrolls" Relationship="Self.FK__CompanyPa__comID__46E78A0C" FromRole="Company" ToRole="CompanyPayroll" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__comID__49C3F6B7" FromRole="Company" ToRole="Employee" />
         </EntityType>
         <EntityType Name="CompanyPayroll">
           <Key>
@@ -277,8 +284,8 @@
           </Key>
           <Property Name="comPayrollID" Type="Int32" Nullable="false" />
           <Property Name="comID" Type="Int32" />
-          <NavigationProperty Name="Company" Relationship="Self.FK__CompanyPa__comID__20C1E124" FromRole="CompanyPayroll" ToRole="Company" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="EmpPayrolls" Relationship="Self.FK__EmpPayrol__comPa__24927208" FromRole="CompanyPayroll" ToRole="EmpPayroll" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__CompanyPa__comID__46E78A0C" FromRole="CompanyPayroll" ToRole="Company" />
+          <NavigationProperty Name="EmpPayrolls" Relationship="Self.FK__EmpPayrol__comPa__4AB81AF0" FromRole="CompanyPayroll" ToRole="EmpPayroll" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -286,10 +293,10 @@
           </Key>
           <Property Name="empID" Type="Int32" Nullable="false" />
           <Property Name="comID" Type="Int32" />
-          <NavigationProperty Name="BasicSalaries" Relationship="Self.FK__BasicSala__empID__1FCDBCEB" FromRole="Employee" ToRole="BasicSalary" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Company" Relationship="Self.FK__Employee__comID__239E4DCF" FromRole="Employee" ToRole="Company" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="EmpPayrolls" Relationship="Self.FK__EmpPayrol__empID__25869641" FromRole="Employee" ToRole="EmpPayroll" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Extras" Relationship="Self.EmpExtra" FromRole="Employee" ToRole="Extra" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="BasicSalaries" Relationship="Self.FK__BasicSala__empID__45F365D3" FromRole="Employee" ToRole="BasicSalary" />
+          <NavigationProperty Name="Company" Relationship="Self.FK__Employee__comID__49C3F6B7" FromRole="Employee" ToRole="Company" />
+          <NavigationProperty Name="EmpPayrolls" Relationship="Self.FK__EmpPayrol__empID__4BAC3F29" FromRole="Employee" ToRole="EmpPayroll" />
+          <NavigationProperty Name="Extras" Relationship="Self.EmpExtra" FromRole="Employee" ToRole="Extra" />
         </EntityType>
         <EntityType Name="EmpPayroll">
           <Key>
@@ -298,9 +305,9 @@
           <Property Name="empPayrollID" Type="Int32" Nullable="false" />
           <Property Name="comPayrollID" Type="Int32" />
           <Property Name="empID" Type="Int32" />
-          <NavigationProperty Name="CompanyPayroll" Relationship="Self.FK__EmpPayrol__comPa__24927208" FromRole="EmpPayroll" ToRole="CompanyPayroll" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK__EmpPayrol__empID__25869641" FromRole="EmpPayroll" ToRole="Employee" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Payslips" Relationship="Self.FK__Payslip__empPayr__276EDEB3" FromRole="EmpPayroll" ToRole="Payslip" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="CompanyPayroll" Relationship="Self.FK__EmpPayrol__comPa__4AB81AF0" FromRole="EmpPayroll" ToRole="CompanyPayroll" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__EmpPayrol__empID__4BAC3F29" FromRole="EmpPayroll" ToRole="Employee" />
+          <NavigationProperty Name="Payslips" Relationship="Self.FK__Payslip__empPayr__4D94879B" FromRole="EmpPayroll" ToRole="Payslip" />
         </EntityType>
         <EntityType Name="Extra">
           <Key>
@@ -308,8 +315,8 @@
           </Key>
           <Property Name="extraID" Type="Int32" Nullable="false" />
           <Property Name="psDetailID" Type="Int32" />
-          <NavigationProperty Name="PaySlipDetail" Relationship="Self.FK__Extra__psDetailI__267ABA7A" FromRole="Extra" ToRole="PaySlipDetail" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Employees" Relationship="Self.EmpExtra" FromRole="Extra" ToRole="Employee" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="PaySlipDetail" Relationship="Self.FK__Extra__psDetailI__4CA06362" FromRole="Extra" ToRole="PaySlipDetail" />
+          <NavigationProperty Name="Employees" Relationship="Self.EmpExtra" FromRole="Extra" ToRole="Employee" />
         </EntityType>
         <EntityType Name="Payslip">
           <Key>
@@ -317,8 +324,8 @@
           </Key>
           <Property Name="payslipID" Type="Int32" Nullable="false" />
           <Property Name="empPayrollID" Type="Int32" />
-          <NavigationProperty Name="EmpPayroll" Relationship="Self.FK__Payslip__empPayr__276EDEB3" FromRole="Payslip" ToRole="EmpPayroll" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="PaySlipDetails" Relationship="Self.FK__PaySlipDe__paysl__286302EC" FromRole="Payslip" ToRole="PaySlipDetail" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="EmpPayroll" Relationship="Self.FK__Payslip__empPayr__4D94879B" FromRole="Payslip" ToRole="EmpPayroll" />
+          <NavigationProperty Name="PaySlipDetails" Relationship="Self.FK__PaySlipDe__paysl__4E88ABD4" FromRole="Payslip" ToRole="PaySlipDetail" />
         </EntityType>
         <EntityType Name="PaySlipDetail">
           <Key>
@@ -326,10 +333,10 @@
           </Key>
           <Property Name="psDetailID" Type="Int32" Nullable="false" />
           <Property Name="payslipID" Type="Int32" />
-          <NavigationProperty Name="Extras" Relationship="Self.FK__Extra__psDetailI__267ABA7A" FromRole="PaySlipDetail" ToRole="Extra" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
-          <NavigationProperty Name="Payslip" Relationship="Self.FK__PaySlipDe__paysl__286302EC" FromRole="PaySlipDetail" ToRole="Payslip" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Extras" Relationship="Self.FK__Extra__psDetailI__4CA06362" FromRole="PaySlipDetail" ToRole="Extra" />
+          <NavigationProperty Name="Payslip" Relationship="Self.FK__PaySlipDe__paysl__4E88ABD4" FromRole="PaySlipDetail" ToRole="Payslip" />
         </EntityType>
-        <Association Name="FK__BasicSala__empID__1FCDBCEB">
+        <Association Name="FK__BasicSala__empID__45F365D3">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="BasicSalary" Type="Self.BasicSalary" Multiplicity="*" />
           <ReferentialConstraint>
@@ -341,7 +348,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CompanyPa__comID__20C1E124">
+        <Association Name="FK__CompanyPa__comID__46E78A0C">
           <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="CompanyPayroll" Type="Self.CompanyPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -353,7 +360,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__comID__239E4DCF">
+        <Association Name="FK__Employee__comID__49C3F6B7">
           <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -365,7 +372,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpPayrol__comPa__24927208">
+        <Association Name="FK__EmpPayrol__comPa__4AB81AF0">
           <End Role="CompanyPayroll" Type="Self.CompanyPayroll" Multiplicity="0..1" />
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -377,7 +384,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmpPayrol__empID__25869641">
+        <Association Name="FK__EmpPayrol__empID__4BAC3F29">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="*" />
           <ReferentialConstraint>
@@ -389,7 +396,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Payslip__empPayr__276EDEB3">
+        <Association Name="FK__Payslip__empPayr__4D94879B">
           <End Role="EmpPayroll" Type="Self.EmpPayroll" Multiplicity="0..1" />
           <End Role="Payslip" Type="Self.Payslip" Multiplicity="*" />
           <ReferentialConstraint>
@@ -401,7 +408,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Extra__psDetailI__267ABA7A">
+        <Association Name="FK__Extra__psDetailI__4CA06362">
           <End Role="PaySlipDetail" Type="Self.PaySlipDetail" Multiplicity="0..1" />
           <End Role="Extra" Type="Self.Extra" Multiplicity="*" />
           <ReferentialConstraint>
@@ -413,7 +420,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PaySlipDe__paysl__286302EC">
+        <Association Name="FK__PaySlipDe__paysl__4E88ABD4">
           <End Role="Payslip" Type="Self.Payslip" Multiplicity="0..1" />
           <End Role="PaySlipDetail" Type="Self.PaySlipDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -429,7 +436,7 @@
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <End Role="Extra" Type="Self.Extra" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="swdEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="swdEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BasicSalaries" EntityType="Self.BasicSalary" />
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="CompanyPayrolls" EntityType="Self.CompanyPayroll" />
@@ -438,35 +445,35 @@
           <EntitySet Name="Extras" EntityType="Self.Extra" />
           <EntitySet Name="Payslips" EntityType="Self.Payslip" />
           <EntitySet Name="PaySlipDetails" EntityType="Self.PaySlipDetail" />
-          <AssociationSet Name="FK__BasicSala__empID__1FCDBCEB" Association="Self.FK__BasicSala__empID__1FCDBCEB">
+          <AssociationSet Name="FK__BasicSala__empID__45F365D3" Association="Self.FK__BasicSala__empID__45F365D3">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="BasicSalary" EntitySet="BasicSalaries" />
           </AssociationSet>
-          <AssociationSet Name="FK__CompanyPa__comID__20C1E124" Association="Self.FK__CompanyPa__comID__20C1E124">
+          <AssociationSet Name="FK__CompanyPa__comID__46E78A0C" Association="Self.FK__CompanyPa__comID__46E78A0C">
             <End Role="Company" EntitySet="Companies" />
             <End Role="CompanyPayroll" EntitySet="CompanyPayrolls" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__comID__239E4DCF" Association="Self.FK__Employee__comID__239E4DCF">
+          <AssociationSet Name="FK__Employee__comID__49C3F6B7" Association="Self.FK__Employee__comID__49C3F6B7">
             <End Role="Company" EntitySet="Companies" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpPayrol__comPa__24927208" Association="Self.FK__EmpPayrol__comPa__24927208">
+          <AssociationSet Name="FK__EmpPayrol__comPa__4AB81AF0" Association="Self.FK__EmpPayrol__comPa__4AB81AF0">
             <End Role="CompanyPayroll" EntitySet="CompanyPayrolls" />
             <End Role="EmpPayroll" EntitySet="EmpPayrolls" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmpPayrol__empID__25869641" Association="Self.FK__EmpPayrol__empID__25869641">
+          <AssociationSet Name="FK__EmpPayrol__empID__4BAC3F29" Association="Self.FK__EmpPayrol__empID__4BAC3F29">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="EmpPayroll" EntitySet="EmpPayrolls" />
           </AssociationSet>
-          <AssociationSet Name="FK__Payslip__empPayr__276EDEB3" Association="Self.FK__Payslip__empPayr__276EDEB3">
+          <AssociationSet Name="FK__Payslip__empPayr__4D94879B" Association="Self.FK__Payslip__empPayr__4D94879B">
             <End Role="EmpPayroll" EntitySet="EmpPayrolls" />
             <End Role="Payslip" EntitySet="Payslips" />
           </AssociationSet>
-          <AssociationSet Name="FK__Extra__psDetailI__267ABA7A" Association="Self.FK__Extra__psDetailI__267ABA7A">
+          <AssociationSet Name="FK__Extra__psDetailI__4CA06362" Association="Self.FK__Extra__psDetailI__4CA06362">
             <End Role="PaySlipDetail" EntitySet="PaySlipDetails" />
             <End Role="Extra" EntitySet="Extras" />
           </AssociationSet>
-          <AssociationSet Name="FK__PaySlipDe__paysl__286302EC" Association="Self.FK__PaySlipDe__paysl__286302EC">
+          <AssociationSet Name="FK__PaySlipDe__paysl__4E88ABD4" Association="Self.FK__PaySlipDe__paysl__4E88ABD4">
             <End Role="Payslip" EntitySet="Payslips" />
             <End Role="PaySlipDetail" EntitySet="PaySlipDetails" />
           </AssociationSet>
@@ -480,7 +487,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="swdModel1StoreContainer" CdmEntityContainer="swdEntities">
+        <EntityContainerMapping StorageEntityContainer="swdModel1StoreContainer" CdmEntityContainer="swdEntities1">
           <EntitySetMapping Name="BasicSalaries">
             <EntityTypeMapping TypeName="swdModel1.BasicSalary">
               <MappingFragment StoreEntitySet="BasicSalary">

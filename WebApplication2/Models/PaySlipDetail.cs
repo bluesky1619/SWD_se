@@ -24,7 +24,7 @@ namespace WebApplication2.Models
         public Nullable<int> payslipID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Extra> Extras { internal get; set; }
-        public virtual Payslip Payslip { internal get; set; }
+        public virtual ICollection<Extra> Extras { get; set; }
+        public virtual Payslip Payslip { get; set; }
     }
 }

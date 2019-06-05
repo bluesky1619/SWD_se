@@ -13,10 +13,10 @@ namespace WebApplication2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class swdEntities : DbContext
+    public partial class swdEntities1 : DbContext
     {
-        public swdEntities()
-            : base("name=swdEntities")
+        public swdEntities1()
+            : base("name=swdEntities1")
         {
         }
     

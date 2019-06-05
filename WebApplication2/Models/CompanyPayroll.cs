@@ -23,8 +23,8 @@ namespace WebApplication2.Models
         public int comPayrollID { get; set; }
         public Nullable<int> comID { get; set; }
     
-        public virtual Company Company { internal get; set; }
+        public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmpPayroll> EmpPayrolls { internal get; set; }
+        public virtual ICollection<EmpPayroll> EmpPayrolls { get; set; }
     }
 }
