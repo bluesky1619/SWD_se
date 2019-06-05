@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89652d63f46b4315be7cdf1733664574" Name="Diagram1">
+        <EntityTypeShape EntityType="swdModel1.BasicSalary" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.Company" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.CompanyPayroll" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.Employee" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.EmpPayroll" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.Extra" Width="1.5" PointX="12" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.Payslip" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="swdModel1.PaySlipDetail" Width="1.5" PointX="9.75" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="swdModel1.FK__BasicSala__empID__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__CompanyPa__comID__20C1E124" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__Employee__comID__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__EmpPayrol__comPa__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__EmpPayrol__empID__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__Payslip__empPayr__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__Extra__psDetailI__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.FK__PaySlipDe__paysl__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="swdModel1.EmpExtra" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
